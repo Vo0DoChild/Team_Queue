@@ -4,7 +4,7 @@ using namespace std;
 #pragma once
 class Queue {
 	friend ostream& operator<<(ostream& output, Queue& q);//перегрузка вывода
-	friend istream& operator>> (istream& input, Queue& q);//перегрузка ввода
+	//friend istream& operator>> (istream& input, Queue& q);//перегрузка ввода
 
 private:
 	Man* head;//голова
@@ -23,11 +23,11 @@ public:
 	void add_nach(float value);//добавление в начало
 	void del_head();//удаление первого элемента(головы)
 	void del_all();//удаление всей очереди
-	void del_index(int index);//удаление элемета по индексу
-	void del_znach(float znach);//удаление значения по значению
-	float del_info(float znach);//удаление с выводом значения
+	float del_index(int index);//удаление элемета по индексу
+	float del_znach(float znach);//удаление значения по значению
 	void change(float old, float new_value);//замена элемента
 	void tek_znach();//узнать текущее значение 
+	int lenght();//узнать длину
 	void inversion();//инвертирование
 	void del_copy();//удаление дубликатов
 	Queue& operator=(const Queue& right);//перегрузка приравнивания
@@ -38,6 +38,10 @@ public:
 	~Queue();//деструктор
 	void print();//функция вывода
 	void sort();//сортировка
+	//void merge(const Queue& second);//слияние
+	//void sum(const Queue& second);
+	Queue operator +(const Queue& second);
+	Queue& operator +=(const Queue& second);
 
-	float& operator[](const int index);//перегрузка индексации
+	//float& operator[](const int index);//перегрузка индексации
 };
